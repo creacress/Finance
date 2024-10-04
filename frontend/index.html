@@ -15,44 +15,39 @@
     </div>
 
     <div class="main-container">
-        <div class="chart-container">
-            <canvas id="stockChart"></canvas>
-        </div>
-
-        <div class="info-block market-info">
-            <h3>Market Info</h3>
-            <p>Current Price: <span id="currentPrice">Loading...</span></p>
-            <p>Opening Price: <span id="openingPrice">Loading...</span></p>
-            <p>High Price: <span id="highPrice">Loading...</span></p>
-            <p>Low Price: <span id="lowPrice">Loading...</span></p>
-            <p>Volume: <span id="volume">Loading...</span></p>
-        </div>
-
+        <!-- Section des prévisions -->
         <div class="info-block prediction-block">
-            <h3>Predicted Prices</h3>
-            <p><b>LSTM Model</b> Predicted Price: <span id="lstmPredictedPrice">Loading...</span></p>
-            <p><b>MLP Dense Model</b> Predicted Price: <span id="mlpPredictedPrice">Loading...</span></p>
+            <h3>Prédictions pour le <span id="predictionDate">5 Octobre 2024</span></h3>
+            <p><b>LSTM Model</b> : <span id="lstmPredictedPrice">Loading...</span></p>
+            <p><b>MLP Dense Model</b> : <span id="mlpPredictedPrice">Loading...</span></p>
+            <p><b>Prix Actuel</b> : <span id="currentPrice">Loading...</span></p>
             <button id="predictBtn" class="btn-primary">Predict</button>
         </div>
 
-        <div class="info-block results-block">
-            <h3>Results Comparison</h3>
-            <p>LSTM Predicted: <span id="lstmResult">Loading...</span></p>
-            <p>MLP Dense Predicted: <span id="mlpResult">Loading...</span></p>
-            <p><b>Difference:</b> <span id="modelDifference">Loading...</span></p>
+        <!-- Section des conseils d'achat/vente -->
+        <div class="info-block market-guide">
+            <h3>Conseil d'Investissement</h3>
+            <p><b>Tendance prévue</b> : <span id="marketTrend">Loading...</span></p>
+            <p><b>Conseil</b> : <span id="investmentAdvice">Loading...</span></p>
         </div>
 
-        <div class="info-block market-overview">
-            <h3>Market Overview</h3>
-            <p><b>Last Close:</b> <span id="lastClose">207.10</span></p>
-            <p><b>Opening Price:</b> <span id="marketOpening">206.90</span></p>
-            <p><b>Day's Range:</b> <span id="daysRange">205.00 - 208.10</span></p>
-            <p><b>52 Week Range:</b> <span id="weekRange">142.94 - 218.90</span></p>
-            <p><b>Volume:</b> <span id="marketVolume">106,196</span></p>
-            <p><b>Average Volume:</b> <span id="averageVolume">486,841</span></p>
-            <p><b>Market Cap:</b> <span id="marketCap">86.718Mds</span></p>
-            <p><b>P/E Ratio (12M):</b> <span id="peRatio">52.97</span></p>
-            <p><b>BPA (12M):</b> <span id="bpa">3.91</span></p>
+        <!-- Section des indicateurs techniques -->
+        <div class="info-block technical-indicators">
+            <h3>Indicateurs Techniques</h3>
+            <p><b>RSI</b> : <span id="rsiValue">Loading...</span></p>
+            <p><b>MACD</b> : <span id="macdValue">Loading...</span></p>
+            <p><b>ADX</b> : <span id="adxValue">Loading...</span></p>
+        </div>
+
+        <!-- Section du risque estimé -->
+        <div class="info-block risk-estimation">
+            <h3>Risque Estimé</h3>
+            <p><b>Niveau de Risque</b> : <span id="riskLevel">Loading...</span></p>
+        </div>
+
+        <!-- Section du graphique -->
+        <div class="chart-container">
+            <canvas id="stockChart"></canvas>
         </div>
     </div>
 

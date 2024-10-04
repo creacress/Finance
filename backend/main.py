@@ -112,35 +112,29 @@ def prepare_lstm_data(data, scaler, seq_length=50):
     
     return np.array(sequences)
 
-# Mise à jour pour inclure à la fois des données historiques et dynamiques
 @app.route('/live-data', methods=['GET'])
 def live_data():
     # Charger les données historiques
     data = load_historical_data('data/safran_stock_data.csv')
 
-    # Vérifier si les données sont valides
     if data.empty:
         return jsonify({'error': 'Aucune donnée historique disponible.'}), 500
 
     # Récupérer les données de marché en direct via yfinance
     live_market_data = get_market_overview()
 
-    # Renvoyer les dernières 51 lignes pour s'assurer que nous avons assez de données pour générer des séquences
-    latest_data = data.tail(51)
+    # Renvoyer les dernières 51 lignes
+    latest_data = data.tail(51).reset_index()
 
-    # Réinitialiser l'index pour inclure 'Date' comme colonne
-    latest_data = latest_data.reset_index()
-
-    # Inclure les données en temps réel et les indicateurs calculés dans la réponse JSON
     return jsonify({
         'current_price': live_market_data['lastClose'],
-        'openingPrice': live_market_data['openingPrice'],
-        'high': live_market_data['daysRange'].split(" - ")[1],
-        'low': live_market_data['daysRange'].split(" - ")[0],
-        'volume': live_market_data['volume'],
+        'RSI': data['RSI'].iloc[-1],  # Inclure les indicateurs techniques
+        'MACD': data['MACD'].iloc[-1],
+        'ADX': data['ADX'].iloc[-1],
         'candlestick_data': latest_data[['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'SMA_50', 'SMA_200', 'RSI',
                                          'Upper_BB', 'Middle_BB', 'Lower_BB', 'MACD', 'ADX']].to_dict(orient='records')
     })
+
 
 @app.route('/compare', methods=['POST'])
 def compare_models():
