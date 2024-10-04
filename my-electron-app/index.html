@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safran Market Prediction</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+</head>
+<body>
+    <div class="header">
+        Safran Stock Market Prediction
+    </div>
+
+    <div class="main-container">
+        <div class="chart-container">
+            <canvas id="stockChart"></canvas>
+        </div>
+
+        <div class="info-block market-info">
+            <h3>Market Info</h3>
+            <p>Current Price: <span id="currentPrice">Loading...</span></p>
+            <p>Opening Price: <span id="openingPrice">Loading...</span></p>
+            <p>High Price: <span id="highPrice">Loading...</span></p>
+            <p>Low Price: <span id="lowPrice">Loading...</span></p>
+            <p>Volume: <span id="volume">Loading...</span></p>
+        </div>
+
+        <div class="info-block prediction-block">
+            <h3>Predicted Prices</h3>
+            <p><b>LSTM Model</b> Predicted Price: <span id="lstmPredictedPrice">Loading...</span></p>
+            <p><b>MLP Dense Model</b> Predicted Price: <span id="mlpPredictedPrice">Loading...</span></p>
+            <button id="predictBtn" class="btn-primary">Predict</button>
+        </div>
+
+        <div class="info-block results-block">
+            <h3>Results Comparison</h3>
+            <p>LSTM Predicted: <span id="lstmResult">Loading...</span></p>
+            <p>MLP Dense Predicted: <span id="mlpResult">Loading...</span></p>
+            <p><b>Difference:</b> <span id="modelDifference">Loading...</span></p>
+        </div>
+
+        <div class="info-block market-overview">
+            <h3>Market Overview</h3>
+            <p><b>Last Close:</b> <span id="lastClose">207.10</span></p>
+            <p><b>Opening Price:</b> <span id="marketOpening">206.90</span></p>
+            <p><b>Day's Range:</b> <span id="daysRange">205.00 - 208.10</span></p>
+            <p><b>52 Week Range:</b> <span id="weekRange">142.94 - 218.90</span></p>
+            <p><b>Volume:</b> <span id="marketVolume">106,196</span></p>
+            <p><b>Average Volume:</b> <span id="averageVolume">486,841</span></p>
+            <p><b>Market Cap:</b> <span id="marketCap">86.718Mds</span></p>
+            <p><b>P/E Ratio (12M):</b> <span id="peRatio">52.97</span></p>
+            <p><b>BPA (12M):</b> <span id="bpa">3.91</span></p>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

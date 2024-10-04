@@ -1,0 +1,19 @@
+# Pour la manipulation des données
+pandas==2.0.3
+
+# Pour récupérer les données financières via Yahoo Finance
+yfinance==0.2.18
+
+# Pour les indicateurs techniques (dernière version disponible)
+TA-Lib==0.4.32
+
+# Pour le machine learning / deep learning
+scikit-learn==1.2.2
+tensorflow==2.12.0  # Ou PyTorch si tu préfères
+
+# Pour les graphiques et la visualisation
+matplotlib==3.7.2
+seaborn==0.12.2
+
+# Pour la gestion des données temporelles
+numpy==1.23.5

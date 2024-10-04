@@ -1,0 +1,30 @@
+# Ignorer l'environnement virtuel
+.venv/
+venv/
+env/
+
+# Ignorer les modèles d'IA
+*.keras
+*.h5
+*.npy
+
+# Ignorer les fichiers de configuration IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorer les fichiers de logs
+*.log
+*.json
+node_modules
+
+# Ignorer les fichiers temporaires
+*.pyc
+__pycache__/
+
+# Ignorer les fichiers de base de données
+*.sqlite3
+
+# Ignorer les fichiers de dépendances
+*.lock
